@@ -1,4 +1,6 @@
 import * as PIXI from 'pixi.js'
+import _ from './app.sass'
+// var css = require("./app.sass");
 
 const app = new PIXI.Application()
 
