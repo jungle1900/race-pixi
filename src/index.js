@@ -6,7 +6,7 @@ export default class {
     this.number = number
 
     this.app = new PIXI.Application({backgroundColor : 0x1099bb})
-    this.texture = PIXI.Texture.fromImage('assets/bunny.png')
+    this.texture = PIXI.Texture.fromImage('bunny.png')
   }
 
   run() {

@@ -30,13 +30,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'race',
-      template: 'src/index.html'
-    }),
     new CleanWebpackPlugin('dist'),
     new CopyWebpackPlugin([
-      { from: 'assets', to: 'assets' },
+      { from: 'assets', to: '' },
     ], {
       ignore: ['.DS_Store']
     }),
