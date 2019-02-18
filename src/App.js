@@ -1,15 +1,24 @@
 import * as PIXI from 'pixi.js'
-import _ from './app.sass'
-// var css = require("./app.sass");
-
-const app = new PIXI.Application()
 
 export default class {
-  constructor(target) {
+  constructor(target, number = 1) {
     this.target = target
+    this.number = number
+
+    this.app = new PIXI.Application({backgroundColor : 0x1099bb})
+    this.texture = PIXI.Texture.fromImage('assets/bunny.png')
   }
 
   run() {
-    this.target.appendChild(app.view)
+    for (let i = 0; i < this.number; i += 1) {
+      let bunny = new PIXI.Sprite(this.texture)
+      bunny.anchor.set(0.5)
+      bunny.x = Math.floor(Math.random() * this.app.screen.width)
+      bunny.y = Math.floor(Math.random() * this.app.screen.height)
+
+      this.app.stage.addChild(bunny);
+    }
+
+    this.target.appendChild(this.app.view)
   }
 }

@@ -1,11 +1,9 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -13,10 +11,9 @@ module.exports = {
   },
   devtool: "source-map",
   devServer: {
-    // contentBase: path.join(__dirname, 'dist'),
-    compress: true,
     overlay: true,
-    port: 8080
+    compress: true,
+    port: 3000
   },
   module: {
     rules: [
@@ -30,14 +27,6 @@ module.exports = {
           }
         }
       },
-      {
-        test: /\.(scss|sass)$/,
-        use: [
-          MiniCssExtractPlugin.loader, // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
-          "sass-loader" // compiles Sass to CSS, using Node Sass by default
-        ]
-      }
     ]
   },
   plugins: [
@@ -47,9 +36,9 @@ module.exports = {
     }),
     new CleanWebpackPlugin('dist'),
     new CopyWebpackPlugin([
-      {
-        from: 'assets'
-      }
-    ], { ignore: ['.DS_Store'] }),
+      { from: 'assets', to: 'assets' },
+    ], {
+      ignore: ['.DS_Store']
+    }),
   ]
-};
+}
