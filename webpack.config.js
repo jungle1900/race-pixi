@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './src/race-pixi.js',
+  entry: './lib/race-pixi.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'race-pixi.js'
