@@ -1,7 +1,8 @@
 {
-  "name": "race",
+  "name": "race-pixi",
   "version": "1.0.0",
-  "license": "ISC",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
