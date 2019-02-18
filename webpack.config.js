@@ -4,10 +4,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './lib/race-pixi.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'race-pixi.js'
+    filename: 'bundle.js'
   },
   devtool: "source-map",
   devServer: {
@@ -30,6 +30,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
     new CleanWebpackPlugin('dist'),
     new CopyWebpackPlugin([
       { from: 'assets', to: '' },

@@ -1,1 +1,1 @@
-module.exports = require('./lib/race-pixi');
+module.exports = require('./src/App');
